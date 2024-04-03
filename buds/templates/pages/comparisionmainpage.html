@@ -1,0 +1,117 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %}{% endblock title %}
+{% block content %}
+<div class="review-page-banner" style="background-image: url({% static 'images/comparisionbanner.png' %});">
+  <div class="container">
+    <div class="row pt-5">
+      <div class="col-md-4">
+        <h2>Comparision</h2>
+        <p class="text-white"><span>Home</span> / <span class="text-white text-opacity-50">Comparision</span></p>
+      </div>
+      <div class="col-md-8 border-start border-secondary-subtle pt-0">
+        That Momens when you remove your headphones and realize how boring is the REAL WORLD.
+      </div>
+    </div>
+
+
+    <div class="row">
+      <!-- owl carousel html starts -->
+      <div class="container-fluid">
+        <div class="row">
+          <div class="owl-carousel owl-theme">
+            {% for item in article %}
+            <div class="item py-5">
+              <div class="comparision-container bg-white p-3 text-center  text-black">
+                <div class="image-container ">
+                  <div class="product1-image" style="background-image: url({{item.product1_image.url}});"></div>
+                  <i class="fa-solid fa-arrows-left-right"></i></i>
+                  <div class="product2-image" style="background-image: url({{item.product2_image.url}});"></div>
+                </div>
+                <hr>
+                <p class="text-black fw-bold mt-3">{{item.product1_name}} <span class="text-muted fw-light ms-2">Rs.
+                    {{item.product1_price}}/-</span></p>
+                <p class="text-black">Vs</p>
+                <p class="text-black fw-bold">{{item.product2_name}} <span class="text-muted  fw-light ms-2">Rs.
+                    {{item.product2_price}}/-</span></p>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      <!-- owl carousel html ends -->
+    </div>
+  </div>
+</div>
+
+<h4 class="text-center py-3">Hottest Comparisions</h4>
+
+<div class="container">
+  <div class="row">
+    {% for item in article %}
+    <div class="col-md-6 py-1 comparisioncard my-3">
+      <a href="{% url 'detailedcomparisionpage' item.id %}" class="text-decoration-none">
+        <div class="comparision-container bg-white p-3 text-center  text-black">
+          <div class="image-container ">
+            <div class="product1-image" style="background-image: url({{item.product1_image.url}});"></div>
+            <i class="fa-solid fa-arrows-left-right"></i></i>
+            <div class="product2-image" style="background-image: url({{item.product2_image.url}});"></div>
+          </div>
+          <hr>
+          <p class="text-black fw-bold mt-3">{{item.product1_name}} <span class="text-muted fw-light ms-2">Rs.
+              {{item.product1_price}}/-</span></p>
+          <p class="text-black">Vs</p>
+          <p class="text-black fw-bold">{{item.product2_name}} <span class="text-muted  fw-light ms-2">Rs.
+              {{item.product2_price}}/-</span></p>
+        </div>
+      </a>
+    </div>
+    {% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</div>
+
+
+
+
+
+
+<!-- jquery cdn link -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+
+<script>
+  $('.owl-carousel').owlCarousel({
+    loop: true,
+    margin: 10,
+    nav: true,
+    responsive: {
+      0: {
+        items: 1
+      },
+      600: {
+        items: 1
+      },
+      1000: {
+        items: 2
+      }
+    }
+  })
+</script>
+{% endblock content %}

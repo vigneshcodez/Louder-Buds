@@ -1,0 +1,124 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %}{% endblock title %}
+{% block content %}
+<div class="review-page-banner" style="background-image: url({% static 'images/bestbuybanner.png' %});">
+  <div class="container">
+    <div class="row pt-5">
+      <div class="col-md-4">
+        <h2>Best Buy</h2>
+        <p class="text-white"><span>Home</span> / <span class="text-white text-opacity-50">Best Buy</span></p>
+      </div>
+      <div class="col-md-8 border-start border-secondary-subtle pt-0">
+        Before buying your next electronics gadgets, check our expert made buying guide. We update these lists from time
+        to time, so don’t worry, you will get the latest and best products, we promise you.
+      </div>
+    </div>
+
+
+    <div class="row">
+      <!-- owl carousel html starts -->
+      <div class="container-fluid">
+        <div class="row">
+          <div class="owl-carousel owl-theme">
+            {% for item in article %}
+            <div class="item py-5">
+              <div class="col-md-12 mb-3 p-4">
+                <div class="review-section-container card p-0 text-center">
+                  <div class="card-header p-0">
+                    <img src="{{item.image.url}}" alt="" class="card-img-top" height="250px">
+                  </div>
+                  <div class="bottom-review-section card-body ">
+                    {{item.Product_name}}
+                  </div>
+                  <div class="review-card-bottom py-3" style="font-size: 12px;">
+                    <p>{{item.created_at}} <i class="fa-solid fa-star ms-3"></i> <span
+                        class="text-muted">{{item.louderbud_rating}}</span></p>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      <!-- owl carousel html ends -->
+    </div>
+  </div>
+</div>
+
+<div class="container">
+ 
+  <div class="row">
+    {% for item in article %}
+    <div class="col-md-4 mb-3 p-4 my-4 temp ">
+      <a href="{% url 'detailedview' item.id %}" class="text-decoration-none">
+        <div class="review-section-container transparentdisplay card p-0 text-center">
+          <div class="card-header p-0">
+            <img src="{{item.image.url}}" alt="" class="card-img-top" height="250px">
+          </div>
+          <div class="bottom-review-section card-body ">
+            {{item.Product_name}}
+          </div>
+          <p class="text-center px-3 py-2 mt-3 mx-3 text-muted reviewpara " style="font-size: 2px;">
+            {{item.Product_description | truncatechars:60|safe }}...
+          </p>
+
+          <div class="review-card-bottom">
+            <p>{{item.created_at}} <i class="fa-solid fa-star ms-3"></i> <span
+                class="text-muted">{{item.louderbud_rating}}</span></p>
+
+
+          </div>
+        </div>
+      </a>
+    </div>
+    {% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</div>
+
+
+
+
+
+
+<!-- jquery cdn link -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+
+<script>
+  $('.owl-carousel').owlCarousel({
+    loop: false,
+    margin: 10,
+    nav: true,
+    responsive: {
+      0: {
+        items: 1
+      },
+      600: {
+        items: 1
+      },
+      1000: {
+        items: 3
+      }
+    }
+  })
+</script>
+{% endblock content %}

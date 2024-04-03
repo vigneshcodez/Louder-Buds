@@ -1,0 +1,42 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %}{% endblock title %}
+{% block content %}
+<br>
+<div class="container bg-light-subtle">
+  <div class="row text-white">
+    <div class="col-md-8 offset-md-2 "
+      style="background-image: linear-gradient(to right,rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url({{article.postimage.url}});height: 300px;">
+      <h1 class="my-3 mx-2 ">{{article.Product_name}}</h1>
+      <h3 class="my-3 mx-2">{{article.Product_brand}}</h3>
+      <p class="my-3 mx-2">{{article.Product_description}}</p>
+      <p class="my-3 mx-2">{{article.date}}</p>
+    </div>
+  </div>
+</div>
+
+<div class="container ">
+  <div class="row">
+    <div class="col-md-8 offset-md-2 py-3 bg-dark-subtle">
+      {{article.content | safe}}
+    </div>
+  </div>
+</div>
+<!-- <div class="post-details-title-area bg-overlay clearfix" style="background-image: url({{article.image.url}});background-position: center;background-size: cover;">
+  <div class="container-fluid h-100">
+    <div class="row h-100 align-items-center">
+      <div class="col-12 col-lg-8">
+     
+        <div class="post-content">
+          <p class="tag"><span>{{article.Product_name}}</span></p>
+          <p class="post-title">{{article.Product_brand}}</p>
+          <div class="d-flex align-items-center">
+            <span class="post-date mr-30">{{article.date_created|date:"M d, Y"}}</span>
+            <span class="post-date">By {{article.user.username}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+{% endblock content %}

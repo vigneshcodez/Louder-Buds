@@ -1,0 +1,104 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %}{% endblock title %}
+{% block content %}
+
+<div class="container">
+
+  <h1 class="text-center my-2 mb-0">{{item.comparision_post_name}}</h1>
+  <div class="row ">
+
+    <div class="col-md-4 col-6 mb-3 p-0 my-4 ">
+
+      <div class="review-section-container card p-0 border-0 text-center">
+        <div class="card-header p-0 border ">
+          <img src="{{item.product1_image.url}}" alt="" class="card-img-top" height="250px">
+        </div>
+        <div class="bottom-review-section card-body ">
+          {{item.product1_name}}
+        </div>
+        <h3 class="py-3 ms-5 border-bottom border-light-subtle ">price:<span
+            class="text-success">{{item.product1_price}}/-</span></h3>
+        <p class="m-0 p-0 text-primary">Box contains : </p>
+        <span class="text-muted mb-3">{{item.product1_boxitems}}</span>
+        <p class="m-0 p-0 text-primary">Warrenty period : </p>
+        <span class="text-muted mb-3">{{item.product1_warrenty}}</span>
+        <p class="m-0 p-0 text-primary">Play Time :</p>
+        <span class="text-muted mb-3">{{item.product1_playtime}}</span>
+        <p class="m-0 p-0 text-primary">Water Resistant : </p>
+        <span class="text-muted mb-3">{{item.product1_waterresistent}}</span>
+        <p class="m-0 p-0 text-primary">Fast Charging : </p>
+        <span class="text-muted mb-3">{{item.product1_fastcharging}}</span>
+        <p class="m-0 p-0 text-primary">Build Quality : </p>
+        <span class="text-muted mb-3">{{item.product1_buildquality}}</span>
+        <p class="m-0 p-0 text-primary">Available Colours : </p>
+        <span class="text-muted mb-3">{{item.product1_colours}}</span>
+        <p class=" m-0 p-0 text-primary">Mic : </p>
+        <span class="text-muted mb-3">{{item.product1_mic}}</span>
+
+        <p class=" m-0 p-0 text-primary">Bass Rating :<span class="text-muted mb-3"></p>
+        <span class="text-muted mb-3"><i class="fa-solid fa-star me-2"></i>{{item.product1_bass_rating}}</span>
+        <p class="m-0 p-0 text-primary">Product Quality : <span class="text-muted mb-3">
+        </p>
+        <span class="text-muted mb-3"><i class="fa-solid fa-star me-2"></i>{{item.product1_build_quality_rating}}</span>
+        <p class="m-0 p-0 text-primary">Bluetooth Connectivity : </p>
+        <span class="text-muted mb-3"><i
+            class="fa-solid fa-star me-2"></i>{{item.product1_bluetooth_connectivity_rating}}</span>
+        <p class="m-0 p-0 text-primary ">Louder Buds Rating : </p>
+        <span class="text-muted  mb-5"><i class="fa-solid fa-star me-2"></i>{{item.product1_louderbud_rating}}</span>
+
+      </div>
+
+    </div>
+    
+    <div class="col-md-4 col-6 mb-3  p-0  my-4 ">
+
+      <div class="review-section-container card p-0 border-0 text-center">
+        <div class="card-header p-0 border ">
+          <img src="{{item.product2_image.url}}" alt="" class="card-img-top" height="250px">
+        </div>
+        <div class="bottom-review-section card-body ">
+          {{item.product1_name}}
+        </div>
+        <h3 class="py-3 ms-5 border-bottom border-light-subtle ">price:<span
+            class="text-success">{{item.product2_price}}/-</span></h3>
+        <p class="m-0 p-0 text-primary">Box contains : </p>
+        <span class="text-muted mb-3">{{item.product2_boxitems}}</span>
+        <p class="m-0 p-0 text-primary">Warrenty period : </p>
+        <span class="text-muted mb-3">{{item.product2_warrenty}}</span>
+        <p class="m-0 p-0 text-primary">Play Time :</p>
+        <span class="text-muted mb-3">{{item.product2_playtime}}</span>
+        <p class="m-0 p-0 text-primary">Water Resistant : </p>
+        <span class="text-muted mb-3">{{item.product2_waterresistent}}</span>
+        <p class="m-0 p-0 text-primary">Fast Charging : </p>
+        <span class="text-muted mb-3">{{item.product2_fastcharging}}</span>
+        <p class="m-0 p-0 text-primary">Build Quality : </p>
+        <span class="text-muted mb-3">{{item.product2_buildquality}}</span>
+        <p class="m-0 p-0 text-primary">Available Colours : </p>
+        <span class="text-muted mb-3">{{item.product2_colours}}</span>
+        <p class=" m-0 p-0 text-primary">Mic : </p>
+        <span class="text-muted mb-3">{{item.product2_mic}}</span>
+
+        <p class=" m-0 p-0 text-primary">Bass Rating :<span class="text-muted mb-3"></p>
+        <span class="text-muted mb-3"><i class="fa-solid fa-star me-2"></i>{{item.product2_bass_rating}}</span>
+        <p class="m-0 p-0 text-primary">Product Quality : <span class="text-muted mb-3">
+        </p>
+        <span class="text-muted mb-3"><i class="fa-solid fa-star me-2"></i>{{item.product2_build_quality_rating}}</span>
+        <p class="m-0 p-0 text-primary">Bluetooth Connectivity : </p>
+        <span class="text-muted mb-3"><i
+            class="fa-solid fa-star me-2"></i>{{item.product2_bluetooth_connectivity_rating}}</span>
+        <p class="m-0 p-0 text-primary ">Louder Buds Rating : </p>
+        <span class="text-muted  mb-5"><i class="fa-solid fa-star me-2"></i>{{item.product2_louderbud_rating}}</span>
+
+      </div>
+
+    </div>
+    <div class="col-md-2"></div>
+
+
+  </div>
+
+</div>
+
+
+{% endblock content %}

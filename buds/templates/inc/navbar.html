@@ -1,0 +1,59 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg " style="background-color: #0000FF;">
+  <div class="container-fluid ">
+
+    <a class="navbar-brand fs-2 text-white logo-tag" href="#"><img src="{% static 'images/logo.jpg' %} "
+        class="nav-logo " alt=""><span class="fw-bold">LOUDER
+        BUDS</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon text-white"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-0 mb-2 mx-auto mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active text-white" aria-current="page" href="{% url 'home' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="{% url 'review' %}">Reviews</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="{% url 'bestbuy' %}">Best Buy</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="{% url 'comparisonpage' %}">Comparison</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Brand
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item text-white" href="#">Action</a></li>
+            <li><a class="dropdown-item text-white" href="#">Another action</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+
+        <form class="d-flex ms-3" role="search" method="post" action="{% url 'searchpage' %}">
+
+          {% csrf_token %}
+          <div class="group">
+            <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+              <g>
+                <path
+                  d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z">
+                </path>
+              </g>
+            </svg>
+            <input placeholder="Search" type="search" class="input" name="searched">
+          </div>
+        </form>
+      </ul>
+
+    </div>
+  </div>
+</nav>

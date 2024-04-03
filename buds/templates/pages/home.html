@@ -1,0 +1,215 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %}{% endblock title %}
+{% block content %}
+{% include 'inc/owlcarousel.html' %}
+<br>
+<!-- owl carousel html starts -->
+<div class="container-fluid m-0">
+  <div class="row">
+    <div class="owl-carousel owl-theme ">
+      {% for item in category %}
+      <div class="item m-3">
+        <div class="owl-card">
+          <img class="owl-card-image" src="{{item.image.url}}" alt="">
+          <p class="owl-card-title text-center">{{item.category_name}}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+<!-- owl carousel html ends -->
+
+<!-- banner1 start -->
+<div class="banner p-3 my-0">
+  <img src="{% static 'images/banner1.jpg' %}" class="banner1" alt="">
+</div>
+<!-- banner1 end -->
+
+<!-- latest section start -->
+<h3 class="text-center m-3  mt-5 mb-5">The Latest</h3>
+<div class="container">
+  <div class="row">
+
+    {% for item in article %}
+
+    <div class="col-md-12 col-xl-6 col-xxl-6 col-12  my-3">
+      <div class="latest-card-container" style="width: 100%;">
+        <img src="{{item.image.url}}" class="img-fluid" style="width: 40%;">
+        <div class="div" style="width: 60%;">
+          <div class="latest-card-container-right-top my-3">
+            <h4 class="text-center">{{item.Product_name}}
+            </h4>
+            <a href="#" class="text-center btn text-primary">Learn more...</a>
+          </div>
+          <div class="latest-card-container-right-bottom ">
+            <p class="text-muted"><i class="fa-regular fa-clock"></i> <span>{{item.created_at}}</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% endfor %}
+
+
+
+
+
+  </div>
+</div>
+<!-- latest section end -->
+
+<!-- latest section2 start -->
+<h3 class="text-center m-3  mt-5 mb-5">The Latest</h3>
+<div class="container">
+  <div class="row">
+
+    {% for item in article %}
+
+    <div class="col-md-12 col-xl-6 col-xxl-6 col-12  my-3">
+      <div class="latestcard"
+        style="background-image: linear-gradient(to right,rgba(0,0,0,0.5),rgba(0,0,0,0.5)) ,url({{item.image.url}});background-position: center;background-size: cover;">
+        <div class="latestcard-content">
+          <p class="latestcard-title">{{item.Product_name}}</p>
+          <p class="latestcard-para">{{item.Product_description}}</p>
+        </div>
+      </div>
+    </div>
+
+    {% endfor %}
+
+
+
+
+
+  </div>
+</div>
+<!-- latest section2 end -->
+
+
+
+<!-- banner2 start -->
+<div class="banner p-3 my-5">
+  <img src="{% static 'images/banner1.jpg' %}" class="banner1" alt="">
+</div>
+<!-- banner2 end -->
+
+<!-- review section start -->
+<h3 class="text-center m-3  mt-5 mb-5">Review</h3>
+<div class="container">
+  <div class="row">
+    {% for item in article %}
+    <div class="col-md-4 mb-3 p-4 my-4 temp ">
+      <a href="{% url 'detailedview' item.id %}" class="text-decoration-none">
+        <div class="review-section-container transparentdisplay card p-0 text-center">
+          <div class="card-header p-0">
+            <img src="{{item.image.url}}" alt="" class="card-img-top" height="250px">
+          </div>
+          <div class="bottom-review-section card-body ">
+            {{item.Product_name}}
+          </div>
+          <p class="text-center px-3 py-2 mt-3 mx-3 text-muted reviewpara " style="font-size: 2px;">
+            {{item.Product_description | truncatechars:60|safe }}...
+          </p>
+
+          <div class="review-card-bottom">
+            <p>{{item.created_at}} <i class="fa-solid fa-star ms-3"></i> <span
+                class="text-muted">{{item.louderbud_rating}}</span></p>
+
+
+          </div>
+        </div>
+      </a>
+    </div>
+    {% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</div>
+<!-- review section end -->
+
+
+
+<div class="banner p-3 my-5">
+  <img src="{% static 'images/banner1.jpg' %}" class="banner1" alt="">
+</div>
+
+
+<!-- bestbuy section start -->
+<h1 class="text-center">Best Buy</h1>
+<div class="container">
+  <div class="row">
+    {% for item in article %}
+    <div class="col-md-4 mb-3 p-4">
+      <div class="review-section-container card p-0 text-center">
+        <div class="card-header p-0">
+          <img src="{{item.image.url}}" alt="" class="card-img-top" height="250px">
+        </div>
+        <p class="text-center px-3 py-2 mt-3" style="font-size: 12px;">Lorem ipsum dolor sit amet, consectetur
+          adipisicing.</p>
+        <div class="review-card-bottom">
+          <p>12/3/24</p>
+          <button class="btn btn-primary mb-3">Buy Now</button>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</div>
+<!-- bestbuy section end -->
+
+
+<!-- jquery cdn link -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+
+<script>
+  $('.owl-carousel').owlCarousel({
+    loop: true,
+    margin: 10,
+    nav: true,
+    responsive: {
+      0: {
+        items: 3
+      },
+      600: {
+        items: 4
+      },
+      1000: {
+        items: 7
+      }
+    }
+  })
+</script>
+
+{% endblock content %}
